@@ -11,6 +11,9 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script> -->
 
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/1963a4b7d0.js" crossorigin="anonymous"></script>
+
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,27 +25,29 @@
 <body class="custom-font-inter">
     
     <main>
-        <!-- Menu -->
+        
         <div class="grid grid-cols-4 h-fit border-2">
-            <section id="menu" class="bg-slate-800 text-slate-800 p-10">
+
+            <!-- Menu -->
+            <section id="menu" class="bg-slate-800 text-slate-800 p-10 h-full">
                 <div class="text-white">
                     <h1 class="w-fit mx-auto text-3xl font-black">BILLIONAIRE</h1>
                     <h1 id="some" class="w-fit mx-auto text-2xl font-light ">DIARY</h1>
                 </div>
 
                 <div class="mt-16">
-                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5">
+                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5 hover:cursor-pointer">
                         <p class="text-lg font-bold">Add a user</p>
                         <p class="text-sm">(Randomly)</p>
                     </div>
-                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5">
+                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5 hover:cursor-pointer">
                         <p class="text-lg font-bold">Double Money</p>
                     </div>
-                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5">
+                    <div id="sort-by-rank" class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5 hover:cursor-pointer">
                         <p class="text-lg font-bold">Sort By Rank</p>
                         <p class="text-sm">(Decending)</p>
                     </div>
-                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5">
+                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5 hover:cursor-pointer">
                         <p class="text-lg font-bold">Calculate Entire Wealth</p>
                     </div>
                 </div>
@@ -50,14 +55,14 @@
                 <img src="images/icons/divider.svg" class="w-3/4 mx-auto block mt-12" alt="">
 
                 <div class="mt-12">
-                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5">
+                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5 hover:cursor-pointer">
                         <p class="text-lg font-bold">Show All Billionaires</p>
                     </div>
-                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5">
+                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5 hover:cursor-pointer">
                         <p class="text-lg font-bold">Richest by industry</p>
                         <p class="text-sm">(Technology)</p>
                     </div>
-                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5">
+                    <div class="flex flex-col justify-center items-center bg-[#D9D9D9] h-16 my-5 hover:cursor-pointer">
                         <p class="text-lg font-bold">Richest by states</p>
                         <p class="text-sm">(Texas)</p>
                     </div>
@@ -66,23 +71,39 @@
 
 
             <!-- Content -->
-            <section id="content" class="col-span-3">
+            <section id="content" class="col-span-3 bg-[#D9D9D9] h-full">
                 <!-- Header -->
                 <section id="header" class="flex justify-between items-center h-28 bg-[#FCFAFA]">
                     <div class="pl-16">
                         <input type="text" class="bg-transparent outline-none border-b pb-2 border-b-slate-800" placeholder="Search">
-                        <button class="text-white bg-slate-800 px-5 py-2 rounded-md">Search</button>
+                        <button id="search-btn" class="text-white bg-slate-800 px-5 py-2 rounded-md opacity-50" disabled>Search</button>
                     </div>
                     <img src="images/logo/logo1.svg" class="pr-2" alt="">
                 </section>
 
                 <!-- Content show -->
-                <section id="result" class="bg-[#D9D9D9] h-screen">
+                <section id="result" class="p-16">
+                    <h1 class="text-2xl font-bold">Hello, User!</h1>
 
+                    <table id="content-table" class="w-full mt-20 text-lg">
+                        <thead class="border-b-2 border-b-black font-bold">
+                            <tr class="text-left">
+                                <th class="py-5">Person</th>
+                                <th class="py-5">Citizenship</th>
+                                <th class="py-5">Industry</th>
+                                <th class="py-5">Rank</th>
+                                <th class="py-5">Wealth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
                 </section>
             </section>
         </div>
     </main>
     
+    <script src="index.js"></script>
 </body>
 </html>
