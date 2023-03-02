@@ -7,12 +7,14 @@ async function getUsers(){
     const data = await res.json();
 
     users = [...data];
+    console.log(users);
     showData(data);
 }
 function showData(data){
     // console.log(data);
     // console.log('end hello World');
     const table = document.getElementById('content-table');
+    table.innerHTML = '';
     let i=0;
     data.forEach((item)=>{
         
@@ -62,10 +64,6 @@ function showData(data){
 
     hideLoader(document.getElementById('result'));
 }
-document.getElementById('sort-by-rank').addEventListener('click',()=>{
-    getUsers();
-    console.log('HERE');
-});
 
 function showLoader(container){
     const loader = document.createElement('img');
@@ -81,3 +79,42 @@ function hideLoader(container){
     }
 }
 
+document.getElementById('sort-by-rank').addEventListener('click',()=>{
+    getUsers();
+    console.log('HERE');
+});
+
+
+
+function search(searchText){
+    const searched = users.filter((item)=>{
+        const name = item?.person?.name;
+        return name.toLowerCase()===searchText.toLowerCase();
+    });
+    showData(searched);
+    showReset();
+}
+
+document.getElementById('search-btn').addEventListener('click',()=>{
+    const inputField = document.getElementById('search-field');
+    let searchText = inputField.value.trim();
+
+    if(users && searchText){
+        search(searchText);
+    }
+});
+
+
+function showReset(){
+    const reset = document.getElementById('reset-btn');
+    reset.classList.remove('hidden');
+}
+function hideReset(){
+    const reset = document.getElementById('reset-btn');
+    reset.classList.add('hidden');
+}
+
+document.getElementById('reset-btn').addEventListener('click',()=>{
+    showData(users);
+    hideReset();
+})
