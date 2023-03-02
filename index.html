@@ -19,10 +19,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body class="custom-font-inter">
+<body class="custom-font-inter relative">
     
     <main>
         
@@ -104,6 +109,38 @@
             </section>
         </div>
     </main>
+
+    <div id="modal-container" class="fixed top-0 left-0 h-screen w-screen hidden">
+        <div id="modal-bg" class="fixed top-0 left-0 h-screen w-screen bg-gray-500 opacity-50"></div>
+        <section id="modal" class="w-[45rem] h-[35rem] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-x-scroll">
+
+            <i onclick="hideModal()" class="fa-lg fa-solid fa-xmark absolute right-2 top-3 duration-200 cursor-pointer hover:scale-110"></i>
+            <h1 id="headline" class="customr-font-inknut text-3xl font-bold text-center"></h1>
+            <h2 class="custom-font-irish font-bold text-center">Biography</h2>
+            <p id="bios"></p>
+            <div class="flex">
+                <section>
+                    <img id="image">
+                    <p><span class="font-bold text-sm">Source: </span><span id="source"></span></p>
+                </section>
+                <section>
+                    <h3 class="customr-font-inknut border-b border-black pb-4">General Information</h3>
+                    <p><span class="font-bold">Citizenship: </span><span id="citizenship"></span></p>
+                    <p><span class="font-bold">State: </span><span id="state"></span></p>
+                    <p><span class="font-bold">City: </span><span id="city"></span></p>
+                    <p><span class="font-bold">Birthday: </span><span id="birthday"></span></p>
+                    <p><span class="font-bold">Gender: </span><span id="gender"></span></p>
+
+                    <h3 class="customr-font-inknut border-b border-black pb-4 mt-6">Financial Information</h3>
+                    <p><span class="font-bold">Exchange: </span><span id="exchange"></span></p>
+                    <p><span class="font-bold">Ticker: </span><span id="ticker"></span></p>
+                    <p><span class="font-bold">Total Shares: </span><span id="number-of-shares"></span></p>
+                    <p><span class="font-bold">Share Price: </span><span id="share-price"></span></p>
+                </section>
+            </div>
+        </section>
+    </div>
+    
     
     <script src="index.js"></script>
 </body>

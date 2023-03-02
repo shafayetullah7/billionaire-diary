@@ -3,7 +3,7 @@ let sortByRank;
 async function getUsers(){
     console.log('Hello World');
     showLoader(document.getElementById('result'));
-    const res = await fetch('https://forbes400.onrender.com/api/forbes400/');
+    const res = await fetch('https://raw.githubusercontent.com/hridoyfahad30/billionaires-api/main/api.json');
     const data = await res.json();
 
     users = [...data];
@@ -23,7 +23,7 @@ function showData(data){
 
         const name = item?.person?.name;
         const nametd = document.createElement('td');
-        nametd.innerHTML = name+` <i class="fa-solid fa-eye"></i>`;
+        nametd.innerHTML = name+` <i onclick="showModal('${name}')" class="fa-solid fa-eye duration-200 cursor-pointer hover:scale-110"></i>`;
         const citizen = item?.countryOfCitizenship;
         const citizentd = document.createElement('td');
         citizentd.innerText = citizen;
@@ -84,7 +84,9 @@ document.getElementById('sort-by-rank').addEventListener('click',()=>{
     console.log('HERE');
 });
 
-
+// test
+getUsers();
+// test
 
 function search(searchText){
     const searched = users.filter((item)=>{
@@ -117,4 +119,23 @@ function hideReset(){
 document.getElementById('reset-btn').addEventListener('click',()=>{
     showData(users);
     hideReset();
-})
+});
+
+function showModal(name){
+    const item = users.find((element)=>element?.person?.name === name);
+    if(item){
+        const modal = document.getElementById('modal');
+        const img = document.getElementById('imgae');
+        let imglink = item.squareImage;
+        if()
+        const modalContainer = document.getElementById('modal-container');
+        modalContainer.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+    }
+    
+}
+function hideModal(){
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
