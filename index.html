@@ -112,15 +112,15 @@
 
     <div id="modal-container" class="fixed top-0 left-0 h-screen w-screen hidden">
         <div id="modal-bg" class="fixed top-0 left-0 h-screen w-screen bg-gray-500 opacity-50"></div>
-        <section id="modal" class="w-[45rem] h-[35rem] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-x-scroll">
+        <section id="modal" class="w-[50rem] h-[40rem] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-y-auto p-5 rounded-lg">
 
             <i onclick="hideModal()" class="fa-lg fa-solid fa-xmark absolute right-2 top-3 duration-200 cursor-pointer hover:scale-110"></i>
-            <h1 id="headline" class="customr-font-inknut text-3xl font-bold text-center"></h1>
+            <h1 id="name" class="customr-font-inknut text-3xl font-bold text-center"></h1>
             <h2 class="custom-font-irish font-bold text-center">Biography</h2>
-            <p id="bios"></p>
-            <div class="flex">
-                <section>
-                    <img id="image">
+            <p id="bios" class="text-sm text-center"></p>
+            <div class="flex gap-5 mt-5">
+                <section class="w-1/2">
+                    <img id="image" class="w-full">
                     <p><span class="font-bold text-sm">Source: </span><span id="source"></span></p>
                 </section>
                 <section>

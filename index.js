@@ -123,15 +123,48 @@ document.getElementById('reset-btn').addEventListener('click',()=>{
 
 function showModal(name){
     const item = users.find((element)=>element?.person?.name === name);
+    console.log(item);
     if(item){
-        const modal = document.getElementById('modal');
-        const img = document.getElementById('imgae');
-        let imglink = item.squareImage;
-        if()
-        const modalContainer = document.getElementById('modal-container');
-        modalContainer.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden');
+        // const modal = document.getElementById('modal');
+        document.getElementById('name').innerText = item?.person?.name;
+        document.getElementById('bios').innerText = item.bios.join(' ');
+        let imglink = item?.squareImage;
+        
+        if(imglink){
+            if(!imglink.startsWith('https:')){
+                imglink='https:'+imglink;
+            }
+            document.getElementById('image').setAttribute('src',imglink);
+        }
+        else{
+            document.getElementById('image').setAttribute('src',imglink);
+        }
+        
+        
+        document.getElementById('source').innerText = item?.source;
+        document.getElementById('citizenship').innerText = item?.countryOfCitizenship;
+        document.getElementById('state').innerText = item?.state;
+        document.getElementById('city').innerText = item?.city;
+        const birthDay = new Date(item?.birthDate);
+        document.getElementById('birthday').innerText = birthDay.toDateString();
+        document.getElementById('gender').innerText = item?.gender;
+        document.getElementById('exchange').innerText = item?.financialAssets[0]?.exchange;
+
+        let ticker = item.financialAssets.map(element => element.ticker).join(',');
+        document.getElementById('ticker').innerText = ticker;
+        let numberOfShares = 0;
+        item.financialAssets.forEach(element => parseInt(numberOfShares += element.numberOfShares));
+        document.getElementById('number-of-shares').innerText = numberOfShares;
+        let sharePrice = '$'+ item?.financialAssets[0]?.sharePrice;
+        document.getElementById('share-price').innerText = sharePrice;
+
+
+
+        
     }
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
     
 }
 function hideModal(){
